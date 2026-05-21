@@ -1,11 +1,182 @@
+<div align="center">
 
-  # HCM控制台
+# 🏢 iHCM Pro · 智能人力资本管理云
 
-  This is a code bundle for HCM控制台. The original project is available at https://www.figma.com/design/AnUN3QPdOJRnJ4KwXiGQ7q/HCM%E6%8E%A7%E5%88%B6%E5%8F%B0.
+**企业级 HCM 系统完整作品集 · 25 个页面 · 8 大业务模块**
 
-  ## Running the code
+[![Live Demo](https://img.shields.io/badge/🌐_在线体验-ihcm--pro.vercel.app-1E40AF?style=for-the-badge)](https://ihcm-pro.vercel.app)
+[![Pages](https://img.shields.io/badge/页面数量-25-10B981?style=for-the-badge)](https://ihcm-pro.vercel.app)
+[![Tech Stack](https://img.shields.io/badge/Tech-React_+_Vite-61DAFB?style=for-the-badge&logo=react)](https://github.com/songgeng758-web/ihcm-pro)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-  Run `npm i` to install the dependencies.
+> 一个面向企业的完整人力资本管理系统原型，覆盖核心人事、招聘、绩效、薪酬、考勤、自助、培训、洞察 8 大业务域。
 
-  Run `npm run dev` to start the development server.
-  
+[🌐 立即体验](https://ihcm-pro.vercel.app) · [📂 源代码](https://github.com/songgeng758-web/ihcm-pro)
+
+</div>
+
+---
+
+## 🎯 项目概览
+
+**iHCM Pro** 是一个完整的企业级人力资本管理系统的高保真原型，独立设计 25 个核心页面，覆盖 HR 从员工入职到离职的全生命周期管理。
+
+项目以**真实企业场景**为出发点，每一个页面、每一个交互细节都是对业务理解和产品思考的输出，而不是单纯的视觉堆砌。
+
+### ✨ 核心特色
+
+- 🎨 **设计语言统一** —— 25 个页面共享同一套设计 token（主色 `#1E40AF` · 圆角 8px · 字体规范）
+- 🏗 **完整业务闭环** —— 从招聘需求到员工离职，跑通 HR 全流程
+- 🎭 **角色视角分离** —— 员工 / 经理 / HR / 高管，四种视角差异化设计
+- 💡 **PM 思维体现** —— 不止功能堆砌，每个模块都有刻意设计的产品决策
+
+---
+
+## 🌐 在线体验
+
+**线上 Demo:** [https://ihcm-pro.vercel.app](https://ihcm-pro.vercel.app)
+
+> 💡 推荐使用桌面端浏览器访问（Chrome / Edge），分辨率 1440px 以上效果最佳
+
+---
+
+## 🏗 系统架构
+
+### 8 大业务模块 · 25 个核心页面
+
+| 模块 | 页面数 | 核心页面 |
+|---|---|---|
+| 🏠 **框架与首页** | 3 | 登录页 · 主框架 · HR 总览 Dashboard |
+| 👥 **核心人事** | 4 | 员工档案 · 员工 360 详情 · 组织管理 · 入转调离 |
+| 🎯 **招聘管理** | 3 | 招聘需求看板 · 候选人 Pipeline · 候选人 360 |
+| 📈 **绩效管理** | 4 | 周期管理 · 我的绩效 · 团队绩效 · **人才九宫格** |
+| 💰 **薪酬管理** | 3 | 薪酬核算中心 · 薪酬结构 · 我的薪酬（工资条） |
+| ⏰ **考勤与服务** | 4 | 考勤日历 · 假期管理 · 员工自助门户 · 审批中心 |
+| 🎓 **培训管理** | 1 | 课程库 |
+| 📊 **HR 洞察** | 3 | 报表中心 · 人才流失预警 · 组织健康度分析 |
+
+---
+
+## 💡 关键设计决策
+
+> 不是"做了什么"，而是"为什么这样做"
+
+### 决策 1 · 薪酬模块的保密性 UI
+
+**问题**：薪酬数据极度敏感，但 HR 核算时又必须看到具体数字。
+
+**方案**：
+- 所有金额列**默认显示为 `¥*****` 打码状态**
+- 顶部"显示全部金额"切换按钮，单行也有独立的眼睛图标
+- 区分**默认隐藏**和**显式鉴权显示**两种交互模式
+
+**思考**：这不是单纯的"加个隐藏按钮"，而是把"信息泄露的责任转移给操作者"——HR 主动点击"显示"，意味着她对这次查看负责。
+
+---
+
+### 决策 2 · 员工自助 vs 管理后台的双视觉风格
+
+**问题**：员工和 HR 都是这个系统的用户，但他们的诉求完全不同。
+
+**方案**：
+- **管理后台**（HR 视角）：冷静专业风，圆角 8px，密集信息密度
+- **员工自助门户**（员工视角）：亲和友好风，圆角 12px，宽松留白，浅色渐变
+
+**思考**：同一套设计 token 在不同语境下的细微调整，体现"用户分层"思维。员工每天打开系统希望看到的是"我的家"，HR 希望看到的是"工作台"——这是情感诉求的差异。
+
+---
+
+### 决策 3 · 招聘 Pipeline 的 Kanban 拖拽交互
+
+**问题**：招聘流程是**典型的状态机**（投递→筛选→面试→Offer→入职），用传统表格表达效率低。
+
+**方案**：5 列 Kanban 看板，候选人卡片可视化拖拽推进。
+
+**思考**：Kanban 不是因为"看着酷"，而是因为它**精确匹配了招聘官的心智模型**——招聘官脑中本来就是"这个候选人在哪个阶段"，Kanban 是这种心智的视觉化呈现。
+
+---
+
+### 决策 4 · 系统设置功能的明确取舍
+
+**问题**：to-B 系统都有"系统设置"模块（权限、字典、流程引擎），但它对作品集的故事价值为零。
+
+**方案**：**保留菜单项但明确禁用**，hover 显示"开发中，预计 V2.0"。
+
+**思考**：作品集不是"什么都做"，而是"想清楚什么该做、什么不该做"。一个明确写着"V2.0 待开发"的灰色菜单项，比一个空壳页面更体现 PM 的优先级判断能力。
+
+---
+
+## 🛠 技术栈
+
+| 类型 | 技术选型 |
+|---|---|
+| **前端框架** | React 18 + TypeScript |
+| **构建工具** | Vite 6 |
+| **样式方案** | Tailwind CSS 4 + shadcn/ui |
+| **UI 组件** | Radix UI · Lucide Icons |
+| **图表库** | Recharts |
+| **路由** | React Router 7 |
+| **拖拽** | React DnD |
+| **设计工具** | Figma Make（AI 辅助原型生成）|
+| **部署** | Vercel · 自动 CI/CD |
+
+---
+
+## 🚀 本地运行
+
+bash
+# 1. 克隆仓库
+git clone https://github.com/songgeng758-web/ihcm-pro.git
+cd ihcm-pro
+
+# 2. 安装依赖（推荐 pnpm）
+pnpm install
+
+# 3. 启动开发服务器
+pnpm dev
+
+# 4. 浏览器访问 http://localhost:5173
+
+---
+
+## 📝 设计反思
+
+> 如果重新做一遍，我会做哪些不同的选择？
+
+### 1. 移动端适配
+当前版本主要面向桌面端 1440px 分辨率优化。下一版本应在原有信息架构基础上设计移动端版本——尤其是**员工自助门户**应该是 mobile-first 的，因为员工请假打卡场景大多在手机上完成。
+
+### 2. 数据模拟的真实性
+当前使用 mock 数据。如果有真实数据源，可以接入一个简单的 Mock Server（如 MSW）或 JSON Server 模拟 API 调用，让原型更接近真实产品体验。
+
+### 3. 可访问性（A11y）
+当前版本未系统处理 ARIA 标签、键盘导航等可访问性问题。完整产品应通过 WCAG 2.1 AA 标准。
+
+### 4. 国际化
+作为面向中国本土的 HCM 系统，当前未做 i18n。若拓展至海外市场，需要重新设计**文案外置 + RTL 适配**架构。
+
+---
+
+## 👤 关于作者
+
+**宋庚**
+
+- 🎓 郑州轻工业大学 · 网络工程
+- 📧 [songgeng758@gmail.com](mailto:songgeng758@gmail.com)
+- 💻 GitHub: [@songgeng758-web](https://github.com/songgeng758-web)
+
+> 这个项目是我对 HCM 产品的一次完整探索，记录了从概念到落地的产品思考过程。
+
+---
+
+## 📄 License
+
+[MIT](LICENSE) © 2026 宋庚
+
+---
+
+<div align="center">
+
+**如果这个项目对你有启发，欢迎点个 ⭐ Star！**
+
+</div>
